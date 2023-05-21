@@ -1,0 +1,30 @@
+{
+  "name": "backend-node",
+  "version": "1.0.0",
+  "description": "demo for local server",
+  "main": "app.js",
+  "scripts": {
+    "dev": "yarn swagger && nodemon ./src/app.js",
+    "serve": "yarn swagger && yarn start",
+    "start": "node ./src/app.js",
+    "swagger": "node ./swagger/swagger.js"
+  },
+  "author": "mao",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.0",
+    "knex": "^2.4.2",
+    "mysql2": "^3.3.1",
+    "nodemon": "^2.0.22",
+    "request": "^2.88.2",
+    "swagger-autogen": "^2.23.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3",
+    "yarn": "^1.22.19"
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": "測試用"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:9527/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "test",
+      "description": "測試用 API"
+    },
+    {
+      "name": "auth",
+      "description": "登入相關 API"
+    }
+  ],
+  "paths": {
+    "/api/test/": {
+      "get": {
+        "tags": [
+          "test"
+        ],
+        "summary": "測試連線",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/test/testToken": {
+      "get": {
+        "tags": [
+          "test"
+        ],
+        "summary": "測試驗證TOKEN功能",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "autoBody": false,
+        "autoQuery": false,
+        "autoHeaders": false
+      }
+    },
+    "/api/test/test/sqlConnect": {
+      "get": {
+        "tags": [
+          "test"
+        ],
+        "summary": "驗證SQL連線功能",
+        "description": "",
+        "parameters": [],
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/Auth/": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "description": "登入功能",
+        "parameters": [
+          {
+            "name": "account",
+            "description": "輸入帳號",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "description": "輸入密碼",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "required": false
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Some description..."
+      }
+    }
+  }
+}
