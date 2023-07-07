@@ -40,5 +40,6 @@ $ yarn serve //正常啟動，不使用nodemon
 ### 參考文件
 
 1. [swagger 文件用法](https://github.com/davibaltar/swagger-autogen#readme)
-2. 
+2. [helmet](https://ithelp.ithome.com.tw/articles/10243077)
+
 
