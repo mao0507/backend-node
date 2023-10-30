@@ -1,22 +1,22 @@
 /* 加入依賴 */
-const express = require('express')
-const config = require('./config.js')
-const bodyParser = require('body-parser')
-const helmet = require('helmet')
+import express from 'express'
+import { port, env } from './config.js'
+import { json, urlencoded } from 'body-parser'
+import helmet from 'helmet'
 
 /* 建立服務 */
 const app = express()
 
 /* 加入擴充功能 */
 app.use(helmet())
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(json())
+app.use(urlencoded({ extended: true }))
 
 /* GET 跟目錄測試. */
 app.get('/', (req, res) => {
   res.send(
-    `service started on  port http://127.0.0.1:${config.port} (${config.env})`
+    `service started on  port http://127.0.0.1:${port} (${env})`
   )
 })
 
-module.exports = app
+export default app
