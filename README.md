@@ -34,3 +34,14 @@ $ yarn serve //正常啟動，不使用nodemon
 12. swagger-ui-express
 13. knex
 14. mysql2
+<<<<<<< HEAD
+=======
+
+
+
+### 參考文件
+
+1. [swagger 文件用法](https://github.com/davibaltar/swagger-autogen#readme)
+2. 
+
+>>>>>>> parent of 462a500 (feat:更新文件)
