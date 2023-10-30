@@ -61,7 +61,10 @@
           {
             "bearerAuth": []
           }
-        ]
+        ],
+        "autoBody": false,
+        "autoQuery": false,
+        "autoHeaders": false
       }
     },
     "/api/test/test/sqlConnect": {
@@ -72,11 +75,7 @@
         "summary": "驗證SQL連線功能",
         "description": "",
         "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
+        "responses": {},
         "security": [
           {
             "bearerAuth": []
@@ -84,7 +83,7 @@
         ]
       }
     },
-    "/api/Auth/Login": {
+    "/api/Auth/": {
       "post": {
         "tags": [
           "auth"
@@ -92,21 +91,22 @@
         "description": "登入功能",
         "parameters": [
           {
-            "name": "data",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "account": {
-                  "example": "any"
-                },
-                "password": {
-                  "example": "any"
-                }
-              }
-            },
+            "name": "account",
             "description": "輸入帳號",
-            "required": true
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "description": "輸入密碼",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -126,7 +126,7 @@
         "type": "http",
         "scheme": "bearer",
         "bearerFormat": "JWT",
-        "description": "輸入 Token ， 方便後續功能測試"
+        "description": "Some description..."
       }
     }
   }

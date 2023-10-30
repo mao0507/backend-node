@@ -1,4 +1,4 @@
-import knex from 'knex'
+const knex = require('knex')
 
 const sqlConnect = knex({
   client: 'mysql2',
@@ -10,12 +10,11 @@ const sqlConnect = knex({
   },
 })
 
-const Select = async (table, columns, where) => {
+const Select = async (table, cloumns, where) => {
   var results
-  if (!columns) columns = '*'
+  if (!cloumns) cloumns = '*'
   await sqlConnect(table)
-    .select(columns)
-    .where(where)
+    .select(cloumns)
     .then((res) => {
       console.log(res)
       results = res
@@ -28,4 +27,4 @@ const Select = async (table, columns, where) => {
   return results
 }
 
-export default { Select }
+module.exports = { Select }

@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "dev": "yarn swagger && nodemon ./src/app.js",
-    "serve": "yarn swagger && node app.js",
-    "start": "node app.js",
+    "serve": "yarn swagger && yarn start",
+    "start": "node ./src/app.js",
     "swagger": "node ./swagger/swagger.js"
   },
   "author": "mao",

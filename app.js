@@ -1,21 +1,21 @@
 //引入通用設定
-import { use, listen } from './src/config/express'
+const app = require('./src/config/express')
 
-import { port } from './src/config/config'
+const config = require('./src/config/config')
 
 /* 引入 swagger 文件 */
-import { serve, setup } from 'swagger-ui-express'
-import swaggerDocument from './swagger/swagger.json'
+const swaggerUi = require('swagger-ui-express')
+const swaggerDocument = require('./swagger/swagger.json')
 /* 加入 swagger */
-use('/swagger', serve, setup(swaggerDocument))
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 //引入router
-use('/api/test', require('./src/controller/test.js').default)
-use('/api/Auth', require('./src/controller/auth.js').default)
+app.use('/api/test', require('./src/router/test.js'))
+app.use('/api/Auth', require('./src/router/auth.js'))
 
 //建立監聽
-listen(port, () => {
-  console.log(`service is listening on ${port} !!!`)
+app.listen(config.port, () => {
+  console.log(`service is listening on ${config.port} !!!`)
 
   //require('child_process').exec(`start http://localhost:${port}/swagger`)
 })
