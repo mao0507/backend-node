@@ -1,16 +1,16 @@
 const express = require('express')
 const config = require('../config/config')
-const { verifyToken } = require('../controller/auth/toekn/token')
+const { verifyToken } = require('../utils/auth/token/token')
 const { Select } = require('../model/sqlConnect/mysql/index.js')
 
-const rotuer = express.Router()
+const router = express.Router()
 
 /* 跟目錄測試 */
-rotuer.get('/', (req, res) => {
+router.get('/', (req, res) => {
   /* 
     #swagger.tags = ['test']
     #swagger.summary  = '測試連線'
-    #swagger.s ecurity = [{
+    #swagger.security = [{
       "bearerAuth":[]
     }]
   } */
@@ -19,7 +19,7 @@ rotuer.get('/', (req, res) => {
 })
 
 /* 測試驗證TOKEN功能 */
-rotuer.get('/testToken', (req, res) => {
+router.get('/testToken', (req, res) => {
   /* 
     #swagger.tags = ['test']
     #swagger.summary  = '測試驗證TOKEN功能'
@@ -45,7 +45,7 @@ rotuer.get('/testToken', (req, res) => {
 })
 
 /* 驗證SQL連線 */
-rotuer.get('/test/sqlConnect', (req, res) => {
+router.get('/test/sqlConnect', (req, res) => {
   /* 
     #swagger.tags = ['test']
     #swagger.summary  = '驗證SQL連線功能'
@@ -62,4 +62,4 @@ rotuer.get('/test/sqlConnect', (req, res) => {
   })
 })
 
-module.exports = rotuer
+module.exports = router

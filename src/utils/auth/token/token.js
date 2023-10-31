@@ -1,5 +1,5 @@
-import { sign, verify } from 'jsonwebtoken'
-import config from 'dotenv'
+const jwt = require('jsonwebtoken')
+const config = require('dotenv')
 
 /**
  * 建立 Token
@@ -12,7 +12,7 @@ const jwtToken = (userId, userName) => {
   const exp = Math.floor(Date.now() / 1000) + 60 * 15
   if (userId && userName) {
     const payload = { userId, userName }
-    const token = sign(
+    const token = jwt.sign(
       { payload, exp },
       process.env.JWT_SIGN_SECRET ? process.env.JWT_SIGN_SECRET : 'maoDidThis'
     )
@@ -36,7 +36,7 @@ const verifyToken = (token) => {
     : 'maoDidThis'
 
   var status = false
-  verify(token, secret, (error, decoded) => {
+  jwt.verify(token, secret, (error, decoded) => {
     if (error) {
       if (error.name === 'TokenExpireError') {
         value = false
@@ -52,7 +52,7 @@ const verifyToken = (token) => {
   return status
 }
 
-export default {
+module.exports = {
   jwtToken,
   verifyToken,
 }

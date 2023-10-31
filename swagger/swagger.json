@@ -61,10 +61,7 @@
           {
             "bearerAuth": []
           }
-        ],
-        "autoBody": false,
-        "autoQuery": false,
-        "autoHeaders": false
+        ]
       }
     },
     "/api/test/test/sqlConnect": {
@@ -75,7 +72,11 @@
         "summary": "驗證SQL連線功能",
         "description": "",
         "parameters": [],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
         "security": [
           {
             "bearerAuth": []
@@ -83,7 +84,7 @@
         ]
       }
     },
-    "/api/Auth/": {
+    "/api/auth/login": {
       "post": {
         "tags": [
           "auth"
@@ -91,22 +92,21 @@
         "description": "登入功能",
         "parameters": [
           {
-            "name": "account",
-            "description": "輸入帳號",
-            "required": true,
-            "in": "query",
+            "name": "json",
+            "in": "body",
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "password",
-            "description": "輸入密碼",
-            "required": true,
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
+              "type": "object",
+              "properties": {
+                "account": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            },
+            "description": "輸入帳號、密碼",
+            "required": true
           }
         ],
         "responses": {
@@ -118,6 +118,22 @@
           "required": false
         }
       }
+    },
+    "/api/sidebar/": {
+      "get": {
+        "tags": [
+          "sideBar"
+        ],
+        "summary": "取得sideBar",
+        "description": "",
+        "parameters": [],
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -126,7 +142,7 @@
         "type": "http",
         "scheme": "bearer",
         "bearerFormat": "JWT",
-        "description": "Some description..."
+        "description": "輸入 Token ， 方便後續功能測試"
       }
     }
   }

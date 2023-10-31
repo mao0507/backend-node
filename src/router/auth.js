@@ -1,22 +1,19 @@
 const express = require('express')
-const { login } = require('../controller/auth/auth')
+const { login } = require('../utils/auth/auth')
 
 const router = express.Router()
 
-router.post('/', (req, res) => {
+router.post('/login', (req, res) => {
   /* 
     #swagger.tags = ['auth']
     #swagger.description = '登入功能'
-    #swagger.parameters['account'] = {
-      description:'輸入帳號',
+    #swagger.parameters['json'] = {
+      in:'body',
+      description:'輸入帳號、密碼',
       required:true,
       type:'string'
     }
-    #swagger.parameters['password'] = {
-      description:'輸入密碼',
-      required:true,
-      type:'string'
-    }
+   
     #swagger.requestBody = {
       required:false,
     }

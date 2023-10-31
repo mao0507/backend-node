@@ -1,6 +1,6 @@
 /* 引用 token 功能 function */
-import { jwtToken, verifyToken } from './token/token'
-import { AuthModel } from '../../model/commonModel'
+const { jwtToken, verifyToken } = require('./token/token')
+const { responseModule } = require('../../model/commonModel')
 
 /**
  * 宣告 登入相關 function
@@ -17,7 +17,7 @@ import { AuthModel } from '../../model/commonModel'
  */
 
 const login = (loginInfo) => {
-  if (!loginInfo) return AuthModel(true, 200, '缺少對應資料')
+  if (!loginInfo) return responseModule(true, 200, '缺少對應資料')
   else console.log('login work')
   const { account, password } = loginInfo
   console.log(account, password)
@@ -28,7 +28,7 @@ const login = (loginInfo) => {
     userId: '9527',
   }
 
-  return AuthModel(true, 200, 'login Work', response)
+  return responseModule(true, 200, 'login Work', {...response})
 }
 
 /**
@@ -38,7 +38,7 @@ const checkToken = (token) => {
   verifyToken(token)
 }
 
-export default {
+module.exports = {
   login,
   checkToken,
 }

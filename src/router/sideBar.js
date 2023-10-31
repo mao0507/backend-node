@@ -1,8 +1,9 @@
 const express = require('express')
-
+const { responseModule } = require('../model/commonModel')
+const sideBar = require('../model/sideBar')
 const router = express.Router()
 
-router.get('/', (req, res) => {
+router.get('/', (req,res) => {
 
   /* 
     #swagger.tags = ['sideBar']
@@ -15,7 +16,11 @@ router.get('/', (req, res) => {
     }]
   } */
   
+  
+  const response = responseModule(true,200,'',sideBar)
+  
   res.status = 200
-
-
+  res.send(response)
 })
+
+module.exports = router;

@@ -11,7 +11,8 @@ app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 //引入router
 app.use('/api/test', require('./src/router/test.js'))
-app.use('/api/Auth', require('./src/router/auth.js'))
+app.use('/api/auth', require('./src/router/auth.js'))
+app.use('/api/sidebar', require('./src/router/sideBar.js'))
 
 //建立監聽
 app.listen(config.port, () => {

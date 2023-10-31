@@ -6,18 +6,16 @@
  * @param { any } data 回傳請求資料
  * @returns { String } 將物件轉換為 JSON，並回傳
  */
-const AuthModel = (success, status, msg, data) => {
+const responseModule = (success, status, msg, data) => {
   const obj = {
     success,
     status,
-    response: {
-      msg,
-      data,
-    },
+    msg,
+    data,
   }
   return JSON.stringify(obj)
 }
 
 module.exports = {
-  AuthModel,
+  responseModule,
 }
