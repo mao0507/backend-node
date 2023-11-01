@@ -10,11 +10,11 @@ const sqlConnect = knex({
   },
 })
 
-const Select = async (table, cloumns, where) => {
+const Select = async (table, columns, where) => {
   var results
-  if (!cloumns) cloumns = '*'
+  if (!columns) columns = '*'
   await sqlConnect(table)
-    .select(cloumns)
+    .select(columns)
     .then((res) => {
       console.log(res)
       results = res
