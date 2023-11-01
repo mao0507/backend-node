@@ -21,7 +21,7 @@ const sideBar  = [
       },
       {
         "featuresId": "89d01a7e-3ea2-4476-95dd-8a7f09e1d9f1",
-        "code": "dashboard",
+        "code": "dashBoard",
         "name": "儀表板",
         "url": "/dashBoard",
         "featuresType": 0,
@@ -467,50 +467,7 @@ const sideBar  = [
       }
     ]
   },
-  {
-    "featuresId": "9a3a1c52-a211-4a4b-85b1-eabae8f707c3",
-    "code": "tools",
-    "name": "工具",
-    "url": "",
-    "icon": "fa-cogs",
-    "parentId": null,
-    "sort": 5,
-    "subMenu": [
-      {
-        "featuresId": "32f9cc59-f44e-4bfa-9e58-7c536c4c4cc6",
-        "code": "news",
-        "name": "公告管理",
-        "url": "/News/index",
-        "featuresType": 0,
-        "icon": "",
-        "parentId": "9a3a1c52-a211-4a4b-85b1-eabae8f707c3",
-        "sort": 0,
-        "subMenu": []
-      },
-      {
-        "featuresId": "94f3ed70-d485-44ba-b024-c3c4aead96ac",
-        "code": "pcApiTool",
-        "name": "API請求格式",
-        "url": "/PcApiTool",
-        "featuresType": 0,
-        "icon": "",
-        "parentId": "9a3a1c52-a211-4a4b-85b1-eabae8f707c3",
-        "sort": 1,
-        "subMenu": []
-      },
-      {
-        "featuresId": "8315701e-6138-4737-96e0-0029fda08422",
-        "code": "pcApiEncrypt",
-        "name": "API加解密工具",
-        "url": "/PcApiEncrypt",
-        "featuresType": 0,
-        "icon": "",
-        "parentId": "9a3a1c52-a211-4a4b-85b1-eabae8f707c3",
-        "sort": 2,
-        "subMenu": []
-      }
-    ]
-  }
+  
 ]
 
 
