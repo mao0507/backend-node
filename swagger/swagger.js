@@ -28,6 +28,10 @@ const doc = {
       name: 'auth',
       description: '登入相關 API',
     },
+    {
+      name: 'sideBar',
+      description: '功能選單 API',
+    }
   ],
   securityDefinitions: {
     // openApi 3.0.0

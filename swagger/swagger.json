@@ -18,9 +18,153 @@
     {
       "name": "auth",
       "description": "登入相關 API"
+    },
+    {
+      "name": "sideBar",
+      "description": "功能選單 API"
     }
   ],
   "paths": {
+    "/api/template/get1": {
+      "get": {
+        "tags": [
+          "template"
+        ],
+        "summary": "API GET 範例1",
+        "description": "無須token驗證，無帶任何參數",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/template/get2": {
+      "get": {
+        "tags": [
+          "template"
+        ],
+        "summary": "API GET 範例2",
+        "description": "無須token驗證，有帶參數",
+        "parameters": [
+          {
+            "name": "variable1",
+            "in": "query",
+            "description": "variable1 string type",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "variable2",
+            "in": "query",
+            "description": "variable2 number type",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/template/get3": {
+      "get": {
+        "tags": [
+          "template"
+        ],
+        "summary": "API GET 範例3",
+        "description": "須token驗證，無帶任何參數",
+        "parameters": [],
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/template/post1": {
+      "post": {
+        "tags": [
+          "template"
+        ],
+        "summary": "API POST 範例1",
+        "description": "無須token驗證，無帶任何參數",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/template/post2": {
+      "post": {
+        "tags": [
+          "template"
+        ],
+        "summary": "API POST 範例2",
+        "description": "無須token驗證，帶參數",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "variable1": {
+                    "example": "any"
+                  },
+                  "variable2": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/template/post3": {
+      "post": {
+        "tags": [
+          "template"
+        ],
+        "summary": "API POST 範例3",
+        "description": "須token驗證，帶參數",
+        "parameters": [],
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": ""
+              },
+              "example": {
+                "variable1": "any",
+                "variable2": "any"
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/test/": {
       "get": {
         "tags": [
@@ -33,7 +177,12 @@
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/test/testToken": {
@@ -43,20 +192,8 @@
         ],
         "summary": "測試驗證TOKEN功能",
         "description": "",
-        "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
+        "parameters": [],
+        "responses": {},
         "security": [
           {
             "bearerAuth": []
@@ -64,7 +201,7 @@
         ]
       }
     },
-    "/api/test/test/sqlConnect": {
+    "/api/test/sqlConnect": {
       "get": {
         "tags": [
           "test"
@@ -89,33 +226,30 @@
         "tags": [
           "auth"
         ],
+        "summary": "登入功能",
         "description": "登入功能",
-        "parameters": [
-          {
-            "name": "json",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "account": {
-                  "example": "any"
-                },
-                "password": {
-                  "example": "any"
-                }
-              }
-            },
-            "description": "輸入帳號、密碼",
-            "required": true
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
           }
         },
         "requestBody": {
-          "required": false
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "account": {
+                    "example": "any"
+                  },
+                  "password": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -127,7 +261,11 @@
         "summary": "取得sideBar",
         "description": "",
         "parameters": [],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
         "security": [
           {
             "bearerAuth": []
