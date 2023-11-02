@@ -21,11 +21,9 @@ router.get('/', (req, res) => {
 /* 測試驗證TOKEN功能 */
 router.get('/testToken', (req, res) => {
   /* 
+    #swagger.auto = false
     #swagger.tags = ['test']
     #swagger.summary  = '測試驗證TOKEN功能'
-     #swagger.parameters['authorization'] = {
-      in:header
-     }
     #swagger.security = [{
       "bearerAuth":[]
     }]
@@ -45,7 +43,7 @@ router.get('/testToken', (req, res) => {
 })
 
 /* 驗證SQL連線 */
-router.get('/test/sqlConnect', (req, res) => {
+router.get('/sqlConnect', (req, res) => {
   /* 
     #swagger.tags = ['test']
     #swagger.summary  = '驗證SQL連線功能'
