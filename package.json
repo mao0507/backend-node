@@ -4,9 +4,9 @@
   "description": "demo for local server",
   "main": "app.js",
   "scripts": {
-    "dev": "yarn swagger && nodemon ./src/app.js",
+    "dev": "yarn swagger && nodemon app.js",
     "serve": "yarn swagger && yarn start",
-    "start": "node ./src/app.js",
+    "start": "node app.js",
     "swagger": "node ./swagger/swagger.js"
   },
   "author": "mao",
